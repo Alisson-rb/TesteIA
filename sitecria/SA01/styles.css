@@ -170,3 +170,7 @@
   .fields select {min-width:0;max-width:100%}
   .bar, .heroGrid > *, .cards > * {min-width:0}
 }
+
+.direct-contact {display:flex;flex-wrap:wrap;gap:0 1.2rem}
+.direct-contact a {display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:3px}
+.intro .direct-contact {margin-top:.5rem}
