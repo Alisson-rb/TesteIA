@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8fafc">
+  <meta name="description" content="Agentes de IA especializados na sua profissão. Automatize tarefas, recupere seu tempo e tenha mais tranquilidade com a CrIA.">
+  <title>CrIA — Sua profissão, potencializada. Sua vida, devolvida.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter','sans-serif'] }, colors: { ink:'#0F172A', brand:'#6366F1', mint:'#10B981', paper:'#F8FAFC' }, boxShadow: { soft:'0 24px 80px rgba(15,23,42,.08)' } } } }
+  </script>
+  <style>
+    html { scroll-behavior:smooth }
+    body { background:#F8FAFC; color:#0F172A }
+    .gradient-text { background:linear-gradient(100deg,#6366F1 8%,#8B5CF6 55%,#10B981 110%); -webkit-background-clip:text; background-clip:text; color:transparent }
+    .grid-bg { background-image:radial-gradient(#cbd5e1 0.8px,transparent .8px); background-size:20px 20px }
+    .glass { background:rgba(255,255,255,.82); backdrop-filter:blur(16px) }
+    .tab-btn[aria-selected="true"] { background:#eef2ff; color:#4f46e5; border-color:#c7d2fe }
+    .faq-content { display:grid; grid-template-rows:0fr; transition:grid-template-rows .28s ease }
+    .faq-content > div { overflow:hidden }
+    .faq-item.open .faq-content { grid-template-rows:1fr }
+    .faq-item.open .faq-chevron { transform:rotate(180deg) }
+    .faq-chevron { transition:transform .2s ease }
+    .reveal { opacity:0; transform:translateY(16px); transition:opacity .6s ease,transform .6s ease }
+    .reveal.visible { opacity:1; transform:translateY(0) }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after {scroll-behavior:auto!important;transition:none!important;animation:none!important} .reveal{opacity:1;transform:none} }
+  </style>
+</head>
+<body class="font-sans antialiased">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/85 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Navegação principal">
+      <a href="#inicio" class="flex items-center gap-2 text-2xl font-extrabold tracking-tight" aria-label="CrIA, início">Cr<span class="gradient-text">IA</span><span class="ml-1 h-2 w-2 rounded-full bg-emerald-400"></span></a>
+      <div class="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
+        <a class="hover:text-brand transition" href="#como-funciona">Como funciona</a><a class="hover:text-brand transition" href="#especialidades">Especialidades</a><a class="hover:text-brand transition" href="#beneficios">Benefícios</a><a class="hover:text-brand transition" href="#planos">Planos</a>
+      </div>
+      <a href="#planos" class="hidden rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/20 transition hover:-translate-y-0.5 hover:bg-indigo-600 sm:inline-flex">Criar minha IA <span class="ml-2">↗</span></a>
+      <button id="menuBtn" class="rounded-xl border border-slate-200 p-2 md:hidden" aria-label="Abrir menu" aria-expanded="false"><i data-lucide="menu"></i></button>
+    </nav>
+    <div id="mobileMenu" class="hidden border-t border-slate-100 bg-white px-5 py-4 md:hidden">
+      <div class="flex flex-col gap-4 text-sm font-medium text-slate-700"><a href="#como-funciona">Como funciona</a><a href="#especialidades">Especialidades</a><a href="#beneficios">Benefícios</a><a href="#planos">Planos</a><a class="font-semibold text-brand" href="#planos">Criar minha IA ↗</a></div>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <!-- Hero -->
+    <section class="relative isolate overflow-hidden">
+      <div class="pointer-events-none absolute -right-40 -top-32 -z-10 h-[520px] w-[520px] rounded-full bg-indigo-200/40 blur-3xl"></div>
+      <div class="pointer-events-none absolute -left-40 top-64 -z-10 h-[420px] w-[420px] rounded-full bg-emerald-100/60 blur-3xl"></div>
+      <div class="mx-auto grid max-w-7xl items-center gap-14 px-5 pb-20 pt-16 lg:grid-cols-[1.02fr_.98fr] lg:px-8 lg:pb-28 lg:pt-24">
+        <div class="relative z-10">
+          <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-white/80 px-3.5 py-2 text-xs font-semibold text-indigo-700 shadow-sm"><span class="h-2 w-2 rounded-full bg-emerald-400"></span> Inteligência que trabalha. Você que vive.</div>
+          <h1 class="max-w-2xl text-4xl font-extrabold leading-[1.08] tracking-[-.045em] text-ink sm:text-5xl lg:text-[3.7rem]">Sua profissão, <span class="gradient-text">potencializada.</span><br>Sua vida, devolvida.</h1>
+          <p class="mt-6 max-w-xl text-lg leading-8 text-slate-600">Agentes de IA treinados para a realidade da sua profissão. Automatize tarefas, cuide dos clientes e organize a rotina — sem deixar a sua vida para depois.</p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="#especialidades" class="inline-flex items-center justify-center rounded-full bg-brand px-7 py-4 font-semibold text-white shadow-xl shadow-indigo-500/20 transition hover:-translate-y-1 hover:bg-indigo-600">Escolher minha IA especialista <i data-lucide="arrow-up-right" class="ml-2 h-4 w-4"></i></a>
+            <a href="#como-funciona" class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-7 py-4 font-semibold text-slate-700 transition hover:-translate-y-1 hover:border-indigo-200 hover:text-brand"><i data-lucide="play-circle" class="h-5 w-5"></i> Ver na prática</a>
+          </div>
+          <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-slate-500"><span class="flex items-center gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-emerald-500"></i> Sem precisar programar</span><span class="flex items-center gap-2"><i data-lucide="shield-check" class="h-4 w-4 text-emerald-500"></i> Você no controle</span></div>
+        </div>
+
+        <!-- Product / lifestyle visual -->
+        <div class="relative mx-auto w-full max-w-[590px]">
+          <div class="absolute -inset-5 rounded-[2.5rem] bg-gradient-to-br from-indigo-200/50 via-white to-emerald-100/70 blur-2xl"></div>
+          <div class="relative rounded-[2rem] border border-white bg-white p-3 shadow-soft sm:p-4">
+            <div class="overflow-hidden rounded-[1.4rem] border border-slate-100 bg-slate-50">
+              <div class="flex items-center justify-between border-b border-slate-100 bg-white px-5 py-4">
+                <div class="flex items-center gap-2.5"><div class="grid h-8 w-8 place-items-center rounded-xl bg-indigo-600 text-sm font-bold text-white">Cr</div><div><p class="text-sm font-bold">Seu espaço CrIA</p><p class="text-[11px] text-slate-400">Tudo fluindo por aqui</p></div></div>
+                <div class="flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-semibold text-emerald-700"><span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span> IA ativa</div>
+              </div>
+              <div class="grid gap-3 p-4 sm:grid-cols-[1.12fr_.88fr]">
+                <div class="space-y-3">
+                  <div class="rounded-2xl border border-slate-100 bg-white p-4">
+                    <div class="mb-3 flex items-center justify-between"><p class="text-xs font-bold text-slate-700">Agenda de hoje</p><span class="text-[10px] text-slate-400">Quarta, 26</span></div>
+                    <div class="space-y-3">
+                      <div class="flex gap-3"><span class="pt-1 text-[10px] font-semibold text-slate-400">09:00</span><div class="flex-1 rounded-lg border-l-[3px] border-indigo-400 bg-indigo-50 px-3 py-2"><p class="text-[11px] font-semibold">Consulta · Ana Lima</p><p class="text-[10px] text-slate-500">Confirmada pela CrIA</p></div></div>
+                      <div class="flex gap-3"><span class="pt-1 text-[10px] font-semibold text-slate-400">11:30</span><div class="flex-1 rounded-lg border-l-[3px] border-emerald-400 bg-emerald-50 px-3 py-2"><p class="text-[11px] font-semibold">Reunião · Novo cliente</p><p class="text-[10px] text-slate-500">Lembrete enviado</p></div></div>
+                    </div>
+                  </div>
+                  <div class="rounded-2xl border border-slate-100 bg-white p-4">
+                    <div class="mb-3 flex items-center justify-between"><p class="text-xs font-bold text-slate-700">Resumo financeiro</p><span class="rounded-full bg-emerald-50 px-2 py-1 text-[9px] font-semibold text-emerald-700">+12,8%</span></div>
+                    <p class="text-xl font-extrabold tracking-tight">R$ 8.420,00</p><p class="text-[10px] text-slate-400">Entradas neste mês · Exemplo ilustrativo</p>
+                    <div class="mt-3 flex h-12 items-end gap-1.5"><span class="h-5 flex-1 rounded-t bg-indigo-100"></span><span class="h-7 flex-1 rounded-t bg-indigo-200"></span><span class="h-6 flex-1 rounded-t bg-indigo-200"></span><span class="h-9 flex-1 rounded-t bg-indigo-300"></span><span class="h-8 flex-1 rounded-t bg-indigo-300"></span><span class="h-11 flex-1 rounded-t bg-indigo-500"></span><span class="h-10 flex-1 rounded-t bg-emerald-400"></span><span class="h-12 flex-1 rounded-t bg-emerald-500"></span></div>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-3">
+                  <div class="rounded-2xl border border-slate-100 bg-white p-4">
+                    <div class="mb-3 flex items-center gap-2"><div class="grid h-7 w-7 place-items-center rounded-lg bg-emerald-100 text-emerald-700"><i data-lucide="message-circle" class="h-4 w-4"></i></div><p class="text-xs font-bold">Atendimento</p></div>
+                    <div class="rounded-xl rounded-tl-sm bg-slate-100 p-3 text-[10px] leading-4 text-slate-600">Olá, Ana! 😊 Posso confirmar seu horário amanhã às 9h?</div>
+                    <div class="ml-auto mt-2 max-w-[90%] rounded-xl rounded-tr-sm bg-indigo-600 p-3 text-[10px] leading-4 text-white">Perfeito, confirmado!</div>
+                    <p class="mt-2 text-right text-[9px] font-medium text-emerald-600">✓ Respondido pela CrIA</p>
+                  </div>
+                  <div class="flex flex-1 flex-col justify-between rounded-2xl bg-gradient-to-br from-indigo-600 to-violet-600 p-4 text-white">
+                    <div><i data-lucide="sparkles" class="h-5 w-5 text-indigo-200"></i><p class="mt-3 text-sm font-bold">Enquanto isso…</p><p class="mt-1 text-[11px] leading-5 text-indigo-100">Sua IA cuida dos detalhes para você focar no que realmente importa.</p></div>
+                    <div class="mt-5 flex items-center gap-2 text-[10px] font-semibold text-indigo-100"><i data-lucide="clock-3" class="h-4 w-4"></i> Mais tempo no seu dia</div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center justify-between border-t border-slate-100 bg-white px-5 py-3 text-[10px] text-slate-400"><span>Prévia ilustrativa da plataforma</span><span class="flex items-center gap-1 text-emerald-600"><i data-lucide="heart" class="h-3 w-3"></i> Feita para simplificar</span></div>
+            </div>
+          </div>
+          <div class="absolute -bottom-6 -left-5 hidden items-center gap-3 rounded-2xl border border-white bg-white p-3 shadow-xl sm:flex"><div class="grid h-10 w-10 place-items-center rounded-xl bg-emerald-50 text-emerald-600"><i data-lucide="coffee"></i></div><div><p class="text-xs font-bold">Pausa merecida</p><p class="text-[10px] text-slate-500">A rotina segue organizada.</p></div></div>
+          <div class="absolute -right-3 top-12 hidden rounded-2xl border border-white bg-white px-4 py-3 shadow-xl sm:block"><p class="text-[10px] text-slate-400">Tarefas organizadas</p><p class="mt-1 text-lg font-extrabold text-ink">+ tranquilidade <span class="text-emerald-500">✦</span></p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social proof strip -->
+    <section class="border-y border-slate-200/70 bg-white/70">
+      <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-3 px-5 py-5 text-center text-xs font-medium text-slate-500 lg:justify-between lg:px-8"><span>Uma rotina mais leve começa com pequenas automações.</span><span class="flex items-center gap-2"><i data-lucide="heart-handshake" class="h-4 w-4 text-brand"></i> Tecnologia com cuidado humano</span><span class="flex items-center gap-2"><i data-lucide="sliders-horizontal" class="h-4 w-4 text-brand"></i> Adaptada ao seu jeito de trabalhar</span><span class="flex items-center gap-2"><i data-lucide="lock-keyhole" class="h-4 w-4 text-brand"></i> Você decide o que automatizar</span></div>
+    </section>
+
+    <!-- Features -->
+    <section id="como-funciona" class="mx-auto max-w-7xl px-5 py-24 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center reveal"><p class="text-sm font-bold uppercase tracking-[.16em] text-brand">Menos operação. Mais vida.</p><h2 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">O que a CrIA faz <span class="gradient-text">por você</span></h2><p class="mt-4 leading-7 text-slate-600">Sua energia vale mais do que tarefas repetidas. Deixe a CrIA cuidar dos bastidores para você estar presente no que importa.</p></div>
+      <div class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <article class="reveal group rounded-3xl border border-slate-200/80 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-indigo-200 hover:shadow-soft"><div class="grid h-12 w-12 place-items-center rounded-2xl bg-indigo-50 text-indigo-600 transition group-hover:bg-indigo-600 group-hover:text-white"><i data-lucide="messages-square"></i></div><h3 class="mt-5 text-lg font-bold">Mensagens sem fila</h3><p class="mt-2 text-sm leading-6 text-slate-500">Atendimento ágil e acolhedor, respostas às dúvidas frequentes e triagem de novos contatos — inclusive fora do seu horário.</p></article>
+        <article class="reveal group rounded-3xl border border-slate-200/80 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-indigo-200 hover:shadow-soft"><div class="grid h-12 w-12 place-items-center rounded-2xl bg-emerald-50 text-emerald-600 transition group-hover:bg-emerald-500 group-hover:text-white"><i data-lucide="calendar-check"></i></div><h3 class="mt-5 text-lg font-bold">Agenda em harmonia</h3><p class="mt-2 text-sm leading-6 text-slate-500">Agendamentos, confirmações e lembretes automáticos para reduzir esquecimentos e evitar conflitos de horário.</p></article>
+        <article class="reveal group rounded-3xl border border-slate-200/80 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-indigo-200 hover:shadow-soft"><div class="grid h-12 w-12 place-items-center rounded-2xl bg-violet-50 text-violet-600 transition group-hover:bg-violet-600 group-hover:text-white"><i data-lucide="wallet"></i></div><h3 class="mt-5 text-lg font-bold">Financeiro mais claro</h3><p class="mt-2 text-sm leading-6 text-slate-500">Acompanhe entradas, saídas, cobranças e alertas em uma visão simples — sem depender de planilhas intermináveis.</p></article>
+        <article class="reveal group rounded-3xl border border-slate-200/80 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-indigo-200 hover:shadow-soft"><div class="grid h-12 w-12 place-items-center rounded-2xl bg-amber-50 text-amber-600 transition group-hover:bg-amber-500 group-hover:text-white"><i data-lucide="contact-round"></i></div><h3 class="mt-5 text-lg font-bold">Clientes bem cuidados</h3><p class="mt-2 text-sm leading-6 text-slate-500">Histórico organizado, lembretes de retorno, follow-ups e pós-venda para ninguém ficar esquecido.</p></article>
+        <article class="reveal group rounded-3xl border border-slate-200/80 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-indigo-200 hover:shadow-soft"><div class="grid h-12 w-12 place-items-center rounded-2xl bg-sky-50 text-sky-600 transition group-hover:bg-sky-500 group-hover:text-white"><i data-lucide="brain-circuit"></i></div><h3 class="mt-5 text-lg font-bold">Feita para sua profissão</h3><p class="mt-2 text-sm leading-6 text-slate-500">Uma IA configurada com o contexto, os processos e a linguagem do seu mercado — não uma resposta genérica para tudo.</p></article>
+        <article class="reveal group rounded-3xl border border-slate-200/80 bg-gradient-to-br from-indigo-600 to-violet-600 p-7 text-white shadow-lg shadow-indigo-500/10 transition duration-300 hover:-translate-y-1 hover:shadow-soft"><div class="grid h-12 w-12 place-items-center rounded-2xl bg-white/15 text-white"><i data-lucide="sun"></i></div><h3 class="mt-5 text-lg font-bold">Seu tempo de volta</h3><p class="mt-2 text-sm leading-6 text-indigo-100">Menos tarefas operacionais, mais espaço para atender melhor, crescer com calma e aproveitar a vida fora do trabalho.</p></article>
+      </div>
+      <p class="mt-5 text-center text-xs text-slate-400">Os resultados variam conforme a rotina, as integrações e a configuração de cada agente.</p>
+    </section>
+
+    <!-- Specialties tabs -->
+    <section id="especialidades" class="overflow-hidden bg-slate-900 py-24 text-white">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center reveal"><p class="text-sm font-bold uppercase tracking-[.16em] text-indigo-300">Uma IA que entende seu dia</p><h2 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">Especialista na sua <span class="text-emerald-300">realidade.</span></h2><p class="mt-4 leading-7 text-slate-300">Escolha sua área e veja como a CrIA pode tirar tarefas do caminho. Cada agente é ajustado aos seus processos.</p></div>
+        <div class="mt-10 flex flex-wrap justify-center gap-2" role="tablist" aria-label="Áreas profissionais">
+          <button class="tab-btn rounded-full border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-300 transition hover:border-indigo-300" role="tab" aria-selected="true" aria-controls="specialtyPanel" data-tab="saude">Saúde & Clínicas</button>
+          <button class="tab-btn rounded-full border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-300 transition hover:border-indigo-300" role="tab" aria-selected="false" aria-controls="specialtyPanel" data-tab="direito">Direito & Consultoria</button>
+          <button class="tab-btn rounded-full border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-300 transition hover:border-indigo-300" role="tab" aria-selected="false" aria-controls="specialtyPanel" data-tab="vendas">Vendas & Imobiliário</button>
+          <button class="tab-btn rounded-full border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-300 transition hover:border-indigo-300" role="tab" aria-selected="false" aria-controls="specialtyPanel" data-tab="autonomos">Autônomos & Criadores</button>
+        </div>
+        <div id="specialtyPanel" class="mx-auto mt-8 grid max-w-5xl items-center gap-10 rounded-[2rem] border border-white/10 bg-white/[.06] p-6 sm:p-10 lg:grid-cols-2" role="tabpanel" tabindex="0">
+          <div><div id="specialtyIcon" class="grid h-12 w-12 place-items-center rounded-2xl bg-indigo-400/15 text-indigo-200"><i data-lucide="heart-pulse"></i></div><p id="specialtyEyebrow" class="mt-6 text-xs font-bold uppercase tracking-[.15em] text-emerald-300">Para clínicas e profissionais de saúde</p><h3 id="specialtyTitle" class="mt-3 text-2xl font-bold">Cuidado com as pessoas. A CrIA cuida da rotina.</h3><p id="specialtyDesc" class="mt-4 leading-7 text-slate-300">Sua assistente organiza o fluxo de atendimento para que a equipe tenha mais tempo para acolher cada paciente.</p><ul id="specialtyList" class="mt-6 space-y-3 text-sm text-slate-200"><li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 shrink-0 text-emerald-300"></i> Confirma consultas e envia lembretes</li><li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 shrink-0 text-emerald-300"></i> Organiza retornos e solicitações administrativas</li><li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 shrink-0 text-emerald-300"></i> Centraliza informações e tarefas da recepção</li></ul></div>
+          <div class="rounded-3xl bg-slate-950/60 p-5 sm:p-7"><div class="flex items-center justify-between"><p class="text-sm font-semibold">Um dia com a sua CrIA</p><span class="rounded-full bg-emerald-400/10 px-3 py-1 text-[10px] font-semibold text-emerald-300">Exemplo de fluxo</span></div><div id="chatExample" class="mt-6 space-y-4"><div class="flex gap-3"><div class="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-indigo-400/20 text-indigo-200"><i data-lucide="bot" class="h-4 w-4"></i></div><div class="rounded-2xl rounded-tl-sm bg-white/10 p-4 text-sm leading-6 text-slate-200">Bom dia! Confirmei 8 consultas, enviei 3 lembretes e sinalizei 1 pedido de reagendamento para sua equipe.</div></div><div class="ml-11 rounded-2xl rounded-tr-sm bg-indigo-500/25 p-4 text-sm leading-6 text-indigo-100">Ótimo. Deixe os pedidos de reagendamento separados para eu revisar.</div><div class="flex gap-3"><div class="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-emerald-400/15 text-emerald-200"><i data-lucide="sparkles" class="h-4 w-4"></i></div><div class="rounded-2xl rounded-tl-sm bg-white/10 p-4 text-sm leading-6 text-slate-200">Pronto. Sua lista está organizada e aguardando sua aprovação.</div></div></div><p class="mt-6 border-t border-white/10 pt-4 text-xs leading-5 text-slate-400">A IA apoia tarefas administrativas. Decisões clínicas, jurídicas e financeiras permanecem sob responsabilidade do profissional.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Before / after -->
+    <section id="beneficios" class="mx-auto max-w-7xl px-5 py-24 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center reveal"><p class="text-sm font-bold uppercase tracking-[.16em] text-brand">A mudança que você sente</p><h2 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">Não é só sobre trabalhar melhor.<br><span class="gradient-text">É sobre viver melhor.</span></h2></div>
+      <div class="mt-12 grid gap-5 md:grid-cols-2">
+        <div class="reveal rounded-[2rem] border border-slate-200 bg-white p-7 sm:p-9"><div class="flex items-center gap-3"><div class="grid h-10 w-10 place-items-center rounded-xl bg-slate-100 text-slate-500"><i data-lucide="cloud-rain"></i></div><div><p class="text-xs font-bold uppercase tracking-widest text-slate-400">Antes</p><h3 class="text-xl font-bold">Tudo depende de você.</h3></div></div><ul class="mt-8 space-y-5 text-sm text-slate-500"><li class="flex gap-3"><i data-lucide="x-circle" class="h-5 w-5 shrink-0 text-rose-400"></i> Mensagens acumuladas e clientes esperando</li><li class="flex gap-3"><i data-lucide="x-circle" class="h-5 w-5 shrink-0 text-rose-400"></i> Prazos, retornos e compromissos na cabeça</li><li class="flex gap-3"><i data-lucide="x-circle" class="h-5 w-5 shrink-0 text-rose-400"></i> Financeiro espalhado em planilhas e anotações</li><li class="flex gap-3"><i data-lucide="x-circle" class="h-5 w-5 shrink-0 text-rose-400"></i> O trabalho invade suas noites e seus intervalos</li></ul></div>
+        <div class="reveal rounded-[2rem] border border-emerald-100 bg-gradient-to-br from-emerald-50 to-white p-7 sm:p-9"><div class="flex items-center gap-3"><div class="grid h-10 w-10 place-items-center rounded-xl bg-emerald-100 text-emerald-600"><i data-lucide="sunrise"></i></div><div><p class="text-xs font-bold uppercase tracking-widest text-emerald-600">Depois</p><h3 class="text-xl font-bold">Você volta a ter espaço.</h3></div></div><ul class="mt-8 space-y-5 text-sm text-slate-700"><li class="flex gap-3"><i data-lucide="check-circle-2" class="h-5 w-5 shrink-0 text-emerald-500"></i> Atendimento organizado e respostas mais rápidas</li><li class="flex gap-3"><i data-lucide="check-circle-2" class="h-5 w-5 shrink-0 text-emerald-500"></i> Agenda e tarefas acompanhadas em um só lugar</li><li class="flex gap-3"><i data-lucide="check-circle-2" class="h-5 w-5 shrink-0 text-emerald-500"></i> Visão clara das entradas, saídas e pendências</li><li class="flex gap-3"><i data-lucide="check-circle-2" class="h-5 w-5 shrink-0 text-emerald-500"></i> Mais tranquilidade para encerrar o expediente</li></ul></div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="bg-indigo-50/60 py-20">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8"><div class="text-center reveal"><p class="text-sm font-bold uppercase tracking-[.16em] text-brand">Simples desde o começo</p><h2 class="mt-3 text-3xl font-extrabold tracking-tight">Sua IA começa com você.</h2></div>
+        <div class="mt-12 grid gap-8 md:grid-cols-3">
+          <div class="reveal text-center"><div class="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-white text-brand shadow-sm"><i data-lucide="mouse-pointer-click"></i></div><p class="mt-5 text-xs font-bold uppercase tracking-widest text-brand">01 · Escolha</p><h3 class="mt-2 text-lg font-bold">Conte sobre sua rotina</h3><p class="mx-auto mt-2 max-w-xs text-sm leading-6 text-slate-500">Identificamos sua profissão, seus desafios e as tarefas que mais consomem seu tempo.</p></div>
+          <div class="reveal text-center"><div class="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-white text-brand shadow-sm"><i data-lucide="sliders-horizontal"></i></div><p class="mt-5 text-xs font-bold uppercase tracking-widest text-brand">02 · Personalize</p><h3 class="mt-2 text-lg font-bold">Ajuste ao seu jeito</h3><p class="mx-auto mt-2 max-w-xs text-sm leading-6 text-slate-500">Configuramos fluxos, linguagem, limites e integrações conforme suas necessidades.</p></div>
+          <div class="reveal text-center"><div class="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-white text-brand shadow-sm"><i data-lucide="coffee"></i></div><p class="mt-5 text-xs font-bold uppercase tracking-widest text-brand">03 · Respire</p><h3 class="mt-2 text-lg font-bold">Ganhe fôlego na rotina</h3><p class="mx-auto mt-2 max-w-xs text-sm leading-6 text-slate-500">Acompanhe o que a IA faz, aprove o que precisar e tenha mais tempo para o que importa.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="planos" class="mx-auto max-w-7xl px-5 py-24 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center reveal"><p class="text-sm font-bold uppercase tracking-[.16em] text-brand">Um investimento no seu tempo</p><h2 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">Escolha seu próximo <span class="gradient-text">respiro.</span></h2><p class="mt-4 text-slate-600">Comece com o essencial e evolua quando sua rotina pedir mais.</p>
+        <div class="mt-7 inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white p-1.5 shadow-sm"><button id="monthlyBtn" class="rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white" aria-pressed="true">Mensal</button><button id="annualBtn" class="rounded-full px-5 py-2 text-sm font-semibold text-slate-500 transition hover:text-brand" aria-pressed="false">Anual <span class="ml-1 text-emerald-600">-20%</span></button></div>
+      </div>
+      <div class="mt-12 grid items-stretch gap-5 lg:grid-cols-3">
+        <article class="reveal flex flex-col rounded-3xl border border-slate-200 bg-white p-7"><p class="text-sm font-bold text-slate-500">Essencial</p><h3 class="mt-2 text-2xl font-extrabold">Para começar leve</h3><p class="mt-2 min-h-12 text-sm leading-6 text-slate-500">Para autônomos que querem organizar o básico e liberar espaço na agenda.</p><div class="mt-6"><span class="text-4xl font-extrabold tracking-tight price" data-month="R$ 79" data-year="R$ 63">R$ 79</span><span class="text-sm text-slate-400"> / mês</span><p class="mt-1 text-xs text-slate-400 billing-note">Cobrança mensal</p></div><a href="mailto:contato@cria.ai?subject=Quero%20conhecer%20o%20plano%20Essencial" class="mt-7 inline-flex justify-center rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold transition hover:border-brand hover:text-brand">Começar com Essencial</a><ul class="mt-7 space-y-3 border-t border-slate-100 pt-6 text-sm text-slate-600"><li class="flex gap-2"><i data-lucide="check" class="h-4 w-4 text-emerald-500"></i> 1 agente personalizado</li><li class="flex gap-2"><i data-lucide="check" class="h-4 w-4 text-emerald-500"></i> Automação de mensagens</li><li class="flex gap-2"><i data-lucide="check" class="h-4 w-4 text-emerald-500"></i> Agenda e lembretes</li><li class="flex gap-2"><i data-lucide="check" class="h-4 w-4 text-emerald-500"></i> Suporte por e-mail</li></ul></article>
+        <article class="reveal relative flex flex-col rounded-3xl border-2 border-indigo-500 bg-white p-7 shadow-soft"><div class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-brand px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest text-white">Mais escolhido</div><p class="text-sm font-bold text-brand">Profissional</p><h3 class="mt-2 text-2xl font-extrabold">Para sua rotina fluir</h3><p class="mt-2 min-h-12 text-sm leading-6 text-slate-500">Para quem precisa conectar atendimento, clientes e operação em um só fluxo.</p><div class="mt-6"><span class="text-4xl font-extrabold tracking-tight price" data-month="R$ 149" data-year="R$ 119">R$ 149</span><span class="text-sm text-slate-400"> / mês</span><p class="mt-1 text-xs text-slate-400 billing-note">Cobrança mensal</p></div><a href="mailto:contato@cria.ai?subject=Quero%20conhecer%20o%20plano%20Profissional" class="mt-7 inline-flex justify-center rounded-full bg-brand px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/20 transition hover:-translate-y-0.5 hover:bg-indigo-600">Quero minha IA profissional ↗</a><ul class="mt-7 space-y-3 border-t border-slate-100 pt-6 text-sm text-slate-600"><li class="flex gap-2"><i data-lucide="check" class="h-4 w-4 text-emerald-500"></i> Até 3 fluxos personalizados</li><li class="flex gap-2"><i data-lucide="check" class="h-4 w-4 text-emerald-500"></i> Mensagens, agenda e CRM</li><li class="flex gap-2"><i data-lucide="check" class="h-4 w-4 text-emerald-500"></i> Visão financeira simplificada</li><li class="flex gap-2"><i data-lucide="check" class="h-4 w-4 text-emerald-500"></i> Suporte prioritário</li></ul></article>
+        <article class="reveal flex flex-col rounded-3xl border border-slate-200 bg-white p-7"><p class="text-sm font-bold text-slate-500">Empresarial</p><h3 class="mt-2 text-2xl font-extrabold">Para equipes inteiras</h3><p class="mt-2 min-h-12 text-sm leading-6 text-slate-500">Para negócios que precisam padronizar processos e coordenar várias pessoas.</p><div class="mt-6"><span class="text-4xl font-extrabold tracking-tight price" data-month="Sob medida" data-year="Sob medida">Sob medida</span></div><a href="mailto:contato@cria.ai?subject=Projeto%20CrIA%20Empresarial" class="mt-7 inline-flex justify-center rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold transition hover:border-brand hover:text-brand">Conversar com especialista</a><ul class="mt-7 space-y-3 border-t border-slate-100 pt-6 text-sm text-slate-600"><li class="flex gap-2"><i data-lucide="check" class="h-4 w-4 text-emerald-500"></i> Agentes e fluxos sob medida</li><li class="flex gap-2"><i data-lucide="check" class="h-4 w-4 text-emerald-500"></i> Gestão de equipe e permissões</li><li class="flex gap-2"><i data-lucide="check" class="h-4 w-4 text-emerald-500"></i> Integrações personalizadas</li><li class="flex gap-2"><i data-lucide="check" class="h-4 w-4 text-emerald-500"></i> Acompanhamento dedicado</li></ul></article>
+      </div>
+      <p class="mt-6 text-center text-xs leading-5 text-slate-400">Valores e recursos ilustrativos para protótipo, sujeitos à definição comercial. Plano anual exibido como equivalente mensal; condições finais devem ser informadas na contratação. Integrações e custos de terceiros podem ser cobrados à parte.</p>
+      <p class="mt-3 text-center text-sm font-medium text-slate-600">Pense no que vale uma hora livre na sua semana. Agora imagine recuperar várias.</p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="bg-white py-24">
+      <div class="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[.8fr_1.2fr] lg:px-8">
+        <div class="reveal"><p class="text-sm font-bold uppercase tracking-[.16em] text-brand">Dúvidas comuns</p><h2 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">Tudo claro.<br><span class="gradient-text">Sem complicação.</span></h2><p class="mt-4 max-w-sm leading-7 text-slate-500">Quer entender melhor como a CrIA se encaixa no seu trabalho? Aqui estão algumas respostas para começar.</p><a href="mailto:contato@cria.ai" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand hover:text-indigo-700">Fale com a nossa equipe <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a></div>
+        <div class="space-y-3 reveal" id="faqList">
+          <div class="faq-item rounded-2xl border border-slate-200 px-5"><button class="faq-trigger flex w-full items-center justify-between gap-4 py-5 text-left" aria-expanded="false"><span class="font-semibold">Preciso saber programar para usar a CrIA?</span><i data-lucide="chevron-down" class="faq-chevron h-5 w-5 shrink-0 text-slate-400"></i></button><div class="faq-content"><div><p class="pb-5 pr-8 text-sm leading-6 text-slate-500">Não. A proposta é configurar a IA com você, em linguagem simples. Você explica como trabalha e quais tarefas quer simplificar; a equipe ajuda a transformar isso em fluxos práticos.</p></div></div></div>
+          <div class="faq-item rounded-2xl border border-slate-200 px-5"><button class="faq-trigger flex w-full items-center justify-between gap-4 py-5 text-left" aria-expanded="false"><span class="font-semibold">Meus dados e informações financeiras ficam seguros?</span><i data-lucide="chevron-down" class="faq-chevron h-5 w-5 shrink-0 text-slate-400"></i></button><div class="faq-content"><div><p class="pb-5 pr-8 text-sm leading-6 text-slate-500">Privacidade e segurança precisam fazer parte do produto desde o início. Antes de contratar, consulte a política de privacidade, os controles de acesso, os fornecedores envolvidos, os prazos de retenção e as medidas de proteção aplicáveis. Não conecte dados sensíveis sem validar esses pontos.</p></div></div></div>
+          <div class="faq-item rounded-2xl border border-slate-200 px-5"><button class="faq-trigger flex w-full items-center justify-between gap-4 py-5 text-left" aria-expanded="false"><span class="font-semibold">Como a IA aprende sobre o meu trabalho?</span><i data-lucide="chevron-down" class="faq-chevron h-5 w-5 shrink-0 text-slate-400"></i></button><div class="faq-content"><div><p class="pb-5 pr-8 text-sm leading-6 text-slate-500">A configuração parte das suas instruções, materiais autorizados, perguntas frequentes e processos. Você revisa as respostas, define limites e pode ajustar o comportamento conforme a operação evolui.</p></div></div></div>
+          <div class="faq-item rounded-2xl border border-slate-200 px-5"><button class="faq-trigger flex w-full items-center justify-between gap-4 py-5 text-left" aria-expanded="false"><span class="font-semibold">A IA vai substituir meu trabalho ou falar pelos meus clientes?</span><i data-lucide="chevron-down" class="faq-chevron h-5 w-5 shrink-0 text-slate-400"></i></button><div class="faq-content"><div><p class="pb-5 pr-8 text-sm leading-6 text-slate-500">A CrIA foi pensada para apoiar tarefas operacionais, não substituir seu julgamento profissional. Você define o que pode ser automatizado, quais situações exigem aprovação e quando a conversa deve passar para uma pessoa.</p></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="px-5 py-20 lg:px-8">
+      <div class="relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-indigo-600 via-violet-600 to-indigo-700 px-7 py-14 text-center text-white shadow-2xl shadow-indigo-500/20 sm:px-14 sm:py-20">
+        <div class="pointer-events-none absolute -left-20 -top-24 h-64 w-64 rounded-full border-[40px] border-white/5"></div><div class="pointer-events-none absolute -bottom-36 -right-12 h-80 w-80 rounded-full border-[50px] border-white/5"></div>
+        <div class="relative"><div class="mx-auto grid h-12 w-12 place-items-center rounded-2xl bg-white/15"><i data-lucide="sparkles" class="h-6 w-6"></i></div><h2 class="mx-auto mt-6 max-w-2xl text-3xl font-extrabold tracking-tight sm:text-5xl">Seu trabalho merece inteligência. <span class="text-emerald-200">Sua vida também.</span></h2><p class="mx-auto mt-5 max-w-xl leading-7 text-indigo-100">Dê o primeiro passo para uma rotina mais leve. Descubra o que uma IA feita para você pode assumir.</p><a href="#especialidades" class="mt-8 inline-flex items-center rounded-full bg-white px-7 py-4 font-semibold text-indigo-700 transition hover:-translate-y-1 hover:bg-indigo-50">Encontrar minha IA <i data-lucide="arrow-up-right" class="ml-2 h-4 w-4"></i></a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:px-8">
+      <div><a href="#inicio" class="text-2xl font-extrabold tracking-tight">Cr<span class="gradient-text">IA</span></a><p class="mt-3 max-w-xs text-sm leading-6 text-slate-500">Menos burocracia no seu dia. Mais vida no seu tempo.</p><div class="mt-5 flex gap-3"><a href="#" aria-label="Instagram" class="grid h-9 w-9 place-items-center rounded-full bg-slate-100 text-slate-600 transition hover:bg-indigo-50 hover:text-brand"><i data-lucide="instagram" class="h-4 w-4"></i></a><a href="#" aria-label="LinkedIn" class="grid h-9 w-9 place-items-center rounded-full bg-slate-100 text-slate-600 transition hover:bg-indigo-50 hover:text-brand"><i data-lucide="linkedin" class="h-4 w-4"></i></a></div></div>
+      <div><p class="text-sm font-bold">Plataforma</p><ul class="mt-4 space-y-3 text-sm text-slate-500"><li><a class="hover:text-brand" href="#como-funciona">Como funciona</a></li><li><a class="hover:text-brand" href="#especialidades">Especialidades</a></li><li><a class="hover:text-brand" href="#beneficios">Benefícios</a></li><li><a class="hover:text-brand" href="#planos">Planos</a></li></ul></div>
+      <div><p class="text-sm font-bold">Institucional</p><ul class="mt-4 space-y-3 text-sm text-slate-500"><li><a class="hover:text-brand" href="mailto:contato@cria.ai">Sobre a CrIA</a></li><li><a class="hover:text-brand" href="mailto:contato@cria.ai?subject=Privacidade">Privacidade</a></li><li><a class="hover:text-brand" href="mailto:contato@cria.ai?subject=Termos%20de%20uso">Termos de uso</a></li></ul></div>
+      <div><p class="text-sm font-bold">Vamos conversar?</p><p class="mt-4 text-sm text-slate-500">Tire suas dúvidas com a nossa equipe.</p><a class="mt-3 inline-flex text-sm font-semibold text-brand hover:text-indigo-700" href="mailto:contato@cria.ai">contato@cria.ai ↗</a></div>
+    </div>
+    <div class="border-t border-slate-100"><div class="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-5 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between lg:px-8"><span>© <span id="year"></span> CrIA. Todos os direitos reservados.</span><span>Feita para devolver tempo ao que importa. 💚</span></div></div>
+  </footer>
+
+  <script>
+    // Icons
+    if (window.lucide) lucide.createIcons();
+
+    // Mobile navigation
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      const open = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', String(!open));
+      mobileMenu.classList.toggle('hidden', open);
+      menuBtn.innerHTML = open ? '<i data-lucide="menu"></i>' : '<i data-lucide="x"></i>';
+      lucide.createIcons();
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden'); menuBtn.setAttribute('aria-expanded','false');
+      menuBtn.innerHTML = '<i data-lucide="menu"></i>'; lucide.createIcons();
+    }));
+
+    // Profession tabs
+    const specialtyData = {
+      saude: { icon:'heart-pulse', eyebrow:'Para clínicas e profissionais de saúde', title:'Cuidado com as pessoas. A CrIA cuida da rotina.', desc:'Sua assistente organiza o fluxo de atendimento para que a equipe tenha mais tempo para acolher cada paciente.', bullets:['Confirma consultas e envia lembretes','Organiza retornos e solicitações administrativas','Centraliza informações e tarefas da recepção'], chat:['Bom dia! Confirmei 8 consultas, enviei 3 lembretes e sinalizei 1 pedido de reagendamento para sua equipe.','Ótimo. Deixe os pedidos de reagendamento separados para eu revisar.','Pronto. Sua lista está organizada e aguardando sua aprovação.'] },
+      direito: { icon:'scale', eyebrow:'Para escritórios e consultorias', title:'Prazos sob controle. Mais foco na estratégia.', desc:'A CrIA ajuda a organizar demandas, documentos e o relacionamento com clientes, mantendo você no comando das decisões.', bullets:['Organiza solicitações e documentos recebidos','Cria lembretes de prazos e reuniões','Prepara follow-ups e atualizações para clientes'], chat:['Recebi os documentos do novo atendimento e organizei tudo na pasta do caso.','Separe também os itens que ainda estão pendentes.','Feito. Montei uma lista de conferência para sua revisão.'] },
+      vendas: { icon:'house', eyebrow:'Para vendas e mercado imobiliário', title:'Mais relacionamento. Menos oportunidade perdida.', desc:'Do primeiro contato ao pós-venda, sua IA ajuda a manter o funil organizado e cada pessoa bem acompanhada.', bullets:['Qualifica novos contatos e identifica interesses','Agenda visitas e envia confirmações','Lembra follow-ups e atualiza o histórico do cliente'], chat:['Novo lead recebido: busca apartamento de 2 quartos e pretende visitar no sábado.','Pode sugerir dois horários e registrar no funil?','Claro. Enviei as opções e deixei o contato aguardando confirmação.'] },
+      autonomos: { icon:'palette', eyebrow:'Para freelancers e criadores', title:'Crie com liberdade. Deixe os bastidores organizados.', desc:'Sua assistente acompanha propostas, cobranças, entregas e prazos para você dedicar energia ao trabalho criativo.', bullets:['Organiza briefing, entregas e datas de projeto','Lembra cobranças e acompanha pagamentos','Prepara respostas e follow-ups para clientes'], chat:['Dois projetos têm entregas nesta semana. Também há uma proposta aguardando retorno.','Me mostre o que é prioridade hoje.','Organizei sua lista por prazo e destaquei o que depende da resposta do cliente.'] }
+    };
+    const tabButtons = [...document.querySelectorAll('.tab-btn')];
+    function setTab(key) {
+      const d = specialtyData[key]; if (!d) return;
+      tabButtons.forEach(b => { const active = b.dataset.tab === key; b.setAttribute('aria-selected', String(active)); b.tabIndex = active ? 0 : -1; });
+      document.getElementById('specialtyIcon').innerHTML = `<i data-lucide="${d.icon}"></i>`;
+      document.getElementById('specialtyEyebrow').textContent = d.eyebrow;
+      document.getElementById('specialtyTitle').textContent = d.title;
+      document.getElementById('specialtyDesc').textContent = d.desc;
+      document.getElementById('specialtyList').innerHTML = d.bullets.map(x => `<li class="flex gap-3"><i data-lucide="check" class="h-4 w-4 shrink-0 text-emerald-300"></i>${x}</li>`).join('');
+      document.getElementById('chatExample').innerHTML = `<div class="flex gap-3"><div class="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-indigo-400/20 text-indigo-200"><i data-lucide="bot" class="h-4 w-4"></i></div><div class="rounded-2xl rounded-tl-sm bg-white/10 p-4 text-sm leading-6 text-slate-200">${d.chat[0]}</div></div><div class="ml-11 rounded-2xl rounded-tr-sm bg-indigo-500/25 p-4 text-sm leading-6 text-indigo-100">${d.chat[1]}</div><div class="flex gap-3"><div class="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-emerald-400/15 text-emerald-200"><i data-lucide="sparkles" class="h-4 w-4"></i></div><div class="rounded-2xl rounded-tl-sm bg-white/10 p-4 text-sm leading-6 text-slate-200">${d.chat[2]}</div></div>`;
+      lucide.createIcons();
+    }
+    tabButtons.forEach((b, i) => {
+      b.addEventListener('click', () => setTab(b.dataset.tab));
+      b.addEventListener('keydown', e => {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+          e.preventDefault(); const dir = e.key === 'ArrowRight' ? 1 : -1;
+          const next = tabButtons[(i + dir + tabButtons.length) % tabButtons.length]; next.focus(); setTab(next.dataset.tab);
+        }
+      });
+    });
+
+    // Pricing toggle
+    const monthlyBtn = document.getElementById('monthlyBtn'), annualBtn = document.getElementById('annualBtn');
+    function setBilling(annual) {
+      monthlyBtn.className = annual ? 'rounded-full px-5 py-2 text-sm font-semibold text-slate-500 transition hover:text-brand' : 'rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white';
+      annualBtn.className = annual ? 'rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white' : 'rounded-full px-5 py-2 text-sm font-semibold text-slate-500 transition hover:text-brand';
+      monthlyBtn.setAttribute('aria-pressed', String(!annual)); annualBtn.setAttribute('aria-pressed', String(annual));
+      document.querySelectorAll('.price').forEach(el => { el.textContent = annual ? el.dataset.year : el.dataset.month; });
+      document.querySelectorAll('.billing-note').forEach(el => { el.textContent = annual ? 'Cobrança anual · valor equivalente por mês' : 'Cobrança mensal'; });
+    }
+    monthlyBtn.addEventListener('click', () => setBilling(false));
+    annualBtn.addEventListener('click', () => setBilling(true));
+
+    // Accessible FAQ accordion: one open at a time
+    document.querySelectorAll('.faq-trigger').forEach(btn => btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item'), wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(other => { other.classList.remove('open'); other.querySelector('.faq-trigger').setAttribute('aria-expanded','false'); });
+      if (!wasOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+    }));
+
+    // Subtle reveal on scroll
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    }), { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
