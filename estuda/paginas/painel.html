@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel do estudante — Estuda</title>
+  <link rel="stylesheet" href="../css/estilo.css">
+  <script src="../js/dados.js" defer></script>
+  <script src="../js/painel.js" defer></script>
+</head>
+<body class="pagina-painel">
+  <header class="topo"><div class="container barra">
+    <a class="marca" href="../index.html"><span aria-hidden="true">✳</span> estuda.</a>
+    <button class="botao contorno" id="sair" type="button" hidden>Sair</button>
+  </div></header>
+  <noscript><p class="container">Ative o JavaScript para acessar o painel. <a href="../index.html">Voltar ao início</a></p></noscript>
+  <main class="container painel" id="painel" hidden>
+    <section class="boas-vindas">
+      <div><p class="rotulo">Meu painel</p><h1>Olá, estudante!</h1><p>Escolha uma trilha e continue seus estudos.</p></div>
+      <div class="resumo"><strong id="total">0 de 6</strong><label for="progresso">lições concluídas</label><progress id="progresso" value="0" max="6"></progress></div>
+    </section>
+    <section aria-labelledby="titulo-trilhas">
+      <h2 id="titulo-trilhas">Minhas trilhas</h2>
+      <div id="filtros" class="filtros" role="group" aria-label="Filtrar trilhas"></div>
+      <div id="lista" class="grade"></div>
+    </section>
+    <p id="status" class="status" role="status"></p>
+  </main>
+  <dialog id="licao" aria-labelledby="titulo-licao">
+    <form method="dialog"><button class="fechar" aria-label="Fechar lição" autofocus>×</button></form>
+    <p id="materia-licao" class="rotulo"></p>
+    <h2 id="titulo-licao"></h2>
+    <p id="texto-licao"></p>
+    <p id="exemplo-licao" class="exemplo"></p>
+    <button id="concluir" class="botao" type="button"></button>
+  </dialog>
+</body>
+</html>
